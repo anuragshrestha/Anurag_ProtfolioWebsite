@@ -3,6 +3,7 @@ import Animated from '../AnimatedLayers/Animated'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SiPostgresql } from 'react-icons/si'
+import Loader from 'react-loaders'
 import {
   faAws,
   faGitAlt,
@@ -26,6 +27,7 @@ const About = () => {
   }, [])
 
   return (
+    <>
     <div className="container about-page">
       <div className="text-zone">
         <h1>
@@ -56,17 +58,20 @@ const About = () => {
             <FontAwesomeIcon icon={faGitAlt} color="#EC4D28" />
           </div>
           <div className="face4">
-            <SiPostgresql color="#336791" size={100} />
+              <FontAwesomeIcon icon={faJsSquare} color="#F7DF1E" />
           </div>
           <div className="face5">
             <FontAwesomeIcon icon={faAws} color="#FF9900" />
           </div>
           <div className="face6">
-            <FontAwesomeIcon icon={faJsSquare} color="#F7DF1E" />
+               <SiPostgresql color="#336791" size={100} />
+         
           </div>
         </div>
       </div>
     </div>
+    <Loader type = 'pacman'/>
+    </>
   )
 }
 
