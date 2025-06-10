@@ -39,9 +39,8 @@
     animation-delay: 1s;
 }
 
-.about-page,
-.contact-page {
-    .text-zone {
+.about-page{
+  .text-zone {
         position: absolute;
         left: 10%;
         top: 50%;
@@ -49,7 +48,57 @@
         width: 35%;
         vertical-align: middle;
         display: table-cell;
-        max-height: 90%;
+        max-height: 80%;
+
+
+        h1 {
+            font-size: 53px;
+            font-family: 'Coolvetica';
+            color: hsl(0, 83%, 43%);
+            font-weight: 400;
+            margin-top: 0;
+            position: relative;
+            margin-bottom: 40px;
+            left: 0px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #fff;
+            font-family: sans-serif;
+            font-weight: 300;
+            min-height: fit-content;
+            animation: pluse 1s;
+
+            &:nth-of-type(1) {
+                animation-delay: 1.5s;
+            }
+
+            &:nth-of-type(2){
+                animation-delay: 1.6s;
+            }
+        }
+    }
+      
+    .text-animate-hover {
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+
+.contact-page {
+    .text-zone {
+        position: absolute;
+        left: 5%;
+        top: 55%;
+        transform: translateY(-50%);
+        width: 35%;
+        vertical-align: middle;
+        display: table-cell;
+        max-height: 80%;
+
 
         h1 {
             font-size: 53px;
