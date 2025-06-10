@@ -7,10 +7,7 @@ import Loader from 'react-loaders'
 import {
   faAws,
   faGitAlt,
-  faJava,
-  faJs,
   faJsSquare,
-  faNodeJs,
   faReact,
   faSwift,
 } from '@fortawesome/free-brands-svg-icons'
