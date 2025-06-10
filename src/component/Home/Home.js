@@ -13,8 +13,6 @@ const Home = () => {
    const nameArray = ['A', 'n', 'u', 'r', 'a', 'g ', '\u00A0', 'S', 'h', 'r', 'e', 's', 't', 'h', 'a'];
 
 
-
-
     useEffect(() => {
       const timeOut = setTimeout(() => {
         setLetterClass('text-animate-hover')

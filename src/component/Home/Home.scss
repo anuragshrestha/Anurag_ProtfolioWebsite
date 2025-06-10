@@ -1,34 +1,63 @@
 .home-page {
-  
-   .text-zone {
+  .text-zone {
     position: absolute;
+    left: 10%;
     top: 50%;
-    left: 15%;
     transform: translateY(-50%);
     width: 40%;
     max-height: 90%;
-   }
+  }
 
-
-    h1 {
-       color: white;
-       font-size: 53px;
-       margin: 0;
-       font-family: 'Coolvetica';
-       font-weight: 400;
-    }
-}
-
-h2{
-    color: #c1b8b8;
-    font-size: 17px;
-    font-family: sans-serif;
+  h1 {
+    color: #fff;
+    font-size: 56px;
+    line-height: 53px;
+    margin: 0;
+    font-family: 'Coolvetica';
     font-weight: 400;
+
+    &:before {
+      font-family: 'La Belle Aurore', cursive;
+      color: #ffd700;
+      font-size: 18px;
+      position: absolute;
+      margin-top: -40px;
+      left: -15px;
+      opacity: 0.6;
+    }
+
+    &:after {
+      font-family: 'La Belle Aurore', cursive;
+      color: #ffd700;
+      font-size: 18px;
+      position: absolute;
+      margin-top: 18px;
+      margin-left: 20px;
+      animation: fadeIn 1s 1.7s backwards;
+      opacity: 0.6;
+    }
+
+    img {
+      margin-left: 20px;
+      opacity: 0;
+      width: 32px;
+      height: auto;
+      animation: rotateIn 1s linear both;
+      animation-delay: 1.4s;
+    }
+  }
+
+  h2 {
+    color: #8d8d8d;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: sans-serif;
     letter-spacing: 3px;
     animation: fadeIn 1s 1.8s backwards;
-}
+  }
 
-.flat-button {
+  .flat-button {
     color: #ffd700;
     font-size: 13px;
     font-weight: 400;
@@ -39,11 +68,80 @@ h2{
     border: 1px solid #ffd700;
     margin-top: 25px;
     float: left;
-    animation: fadeIn 1s 1.8s backwards;
+    animation: fadeInAnimation 1s 1.8s backwards;
     white-space: nowrap;
 
-    &:hover{
-        color: #333;
-        background: #ffd700;
+    &:hover {
+      background: #ffd700;
+      color: #333;
     }
+  }
 }
+
+
+
+@media screen and (max-width: 1200px) {
+  .tags,
+  .home-page h1:before,
+  .home-page h1:after {
+    display: none;
+  }
+
+  .home-page .text-zone {
+    position: absolute;
+    width: 80%;
+    transform: none;
+    padding: 30px;
+    box-sizing: border-box;
+    left: 10%;
+    top: 20%;
+
+
+  
+  }
+
+  .home-page h2 {
+    color: #8d8d8d;
+    margin-top: 18px;
+    font-weight: 300;
+    font-size: 14px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    animation: fadeIn 1s 1.8s backwards;
+  }
+
+  .home-page .flat-button {
+    float: left;
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 124px;
+    animation: fadeInAnimation 1s 1.8s backwards;
+    white-space: nowrap;
+  }
+
+  .logo-container {
+    position: relative;
+    width: 100px;
+    height: auto;
+    top: 50px;
+    right: 0;
+    box-sizing: border-box;
+    margin: auto;
+    left: 0;
+  }
+
+  .logo-container svg {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    margin: auto;
+  }
+
+
+
+
+
+}
+
