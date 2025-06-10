@@ -3,7 +3,7 @@
     width: 500px;
     height: 90%;
     position: absolute;
-    top: 0;
+    top: 10;
     right: 20%;
     bottom: 105;
     left: auto;
@@ -22,4 +22,13 @@
    }
 
 
+}
+
+
+@media screen and (max-width: 1200px) {
+  
+    .logo-container,
+    .solid-logo {
+        display: none;
+    }
 }

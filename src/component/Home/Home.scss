@@ -97,9 +97,12 @@
     top: 20%;
 
 
-  
   }
 
+   .home-page h1 {
+      text-align: left;
+   }
+    
   .home-page h2 {
     color: #8d8d8d;
     margin-top: 18px;
@@ -108,6 +111,7 @@
     font-family: sans-serif;
     letter-spacing: 2px;
     animation: fadeIn 1s 1.8s backwards;
+    text-align: left;
   }
 
   .home-page .flat-button {
