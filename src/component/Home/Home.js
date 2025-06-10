@@ -1,5 +1,4 @@
 import './Home.scss';
-import anurag from '../../assets/images/anurag.png'
 import {Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Animated from '../AnimatedLayers/Animated';
