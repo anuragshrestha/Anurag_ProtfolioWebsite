@@ -4,6 +4,7 @@ import Contact from './component/Contact/Contact';
 import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import About from './component/About/About';
+import Skill from './component/Skills/Skill';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route index element={<Home/>} />
       <Route path='about' element={<About/>}/>
       <Route  path='contact' element={<Contact/>}/>
+      <Route path='skill' element={<Skill/>} />
     </Route>
   
    </Routes>
