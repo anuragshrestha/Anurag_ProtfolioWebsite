@@ -66,7 +66,7 @@ const Sidebar = () => {
           >
             <FontAwesomeIcon
               icon={faLinkedin}
-              color="#4d4d4e"
+              color='#FFFFFF'
               className="anchor-icon"
             />
           </a>
@@ -96,3 +96,4 @@ const Sidebar = () => {
 }
 
 export default Sidebar
+
