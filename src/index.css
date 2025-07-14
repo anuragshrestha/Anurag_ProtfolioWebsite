@@ -25,3 +25,10 @@ body {
     overflow: visible;
   }
 }
+
+html, body, #root {
+  height: auto;     
+  overflow-y: auto;   
+  margin: 0;
+  padding: 0;
+}
