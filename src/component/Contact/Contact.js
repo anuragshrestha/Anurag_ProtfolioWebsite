@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser'
 import Animated from '../AnimatedLayers/Animated'
 import './Contact.scss'
 
+
 const SERVICE_ID = 'service_dvke4al' 
 const TEMPLATE_ID = 'template_fkfwn9y' 
 const PUBLIC_KEY = 'vIUZN6pg9vnvlbJ_0' 
@@ -12,6 +13,7 @@ const PUBLIC_KEY = 'vIUZN6pg9vnvlbJ_0'
 export default function Contact() {
   const [letterClass, setLetterClass] = useState('text-animate')
   const [sending, setSending] = useState(false)
+  const [isSent, setIsSent] = useState(false);
   const formRef = useRef(null)
 
   useEffect(() => {
@@ -27,8 +29,9 @@ export default function Contact() {
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, form , PUBLIC_KEY)
       .then(() => {
-        alert('Message sent! \n Please check your inbox.')
-        formRef.current.reset()
+        setIsSent(true);
+        formRef.current.reset();
+        setTimeout(() => setIsSent(false), 5000);
       })
       .catch(() => alert('Failed to send message. Please try again.'))
       .finally(() => setSending(false))
@@ -75,6 +78,7 @@ export default function Contact() {
                 </button>
               </li>
             </ul>
+            {isSent && <p className="success-message">Message sent! Please check your inbox.</p>}
           </form>
         </div>
       </div>
