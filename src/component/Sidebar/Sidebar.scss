@@ -91,6 +91,12 @@
       }
     }
 
+    a.skill-link {
+    &::after{
+      content: 'SKILL';
+    }
+    }
+
     a.contact-link {
       &:after {
         content: 'CONTACT';
@@ -120,13 +126,26 @@
     li {
       a {
       font-size: 32px;
-      color: #4d4d4e;
       display: flex;
       align-items: center;
       justify-content: center;
       width: 36px;
       height: 36px;
-      }
+
+      .anchor-icon {
+        color: inherit; 
+        transition: color 0.3s ease-out;
+
+        
+
+           &[data-icon="linkedin"] {
+            color: #2354d0 !important; 
+          }
+          &[data-icon="github"] {
+            color: #b6b6bc !important; 
+          }
+       }
+      
 
       &:hover {
         .anchor-icon {
@@ -136,11 +155,27 @@
     }
   }
 }
+}
 
 .hamburger-icon, .close-icon {
   display: none;
 }
 
+
+.nav-bar {
+  ul {
+    li {
+      a {
+        .anchor-icon {
+          color: inherit;         
+        }
+        .instagram-icon {
+          color: #E1306C !important;
+        }
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 1200px) {
   .nav-bar { 
@@ -212,3 +247,4 @@
      }
   }
 }
+
