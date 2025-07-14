@@ -11,6 +11,7 @@ import {
   faEnvelope,
   faBars,
   faClose,
+  faCode
 } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
 
@@ -21,23 +22,30 @@ const Sidebar = () => {
     <div className="nav-bar">
       <nav className={showNav ? 'mobile-show' : ''}>
         <NavLink 
-          exact="true"
-          activeclassname="active"
           to="/"
+          end
+          className={({ isActive }) => isActive ? 'active' : ''}
           onClick={() => setShowNav(false)}>
           <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
         </NavLink>
         <NavLink 
-          activeclassname="active"
-          className="about-link"
           to="/about"
+          end
+          className={({ isActive }) => `about-link${isActive ? ' active' : ''}`}
           onClick={() => setShowNav(false)}>
           <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
         </NavLink>
+        <NavLink 
+          to="/skill"
+          end
+          className={({ isActive }) => `skill-link${isActive ? ' active' : ''}`}
+          onClick={() => setShowNav(false)}>
+          <FontAwesomeIcon icon={faCode} color="#4d4d4e" />
+        </NavLink>
         <NavLink
-          activeclassname="active"
-          className="contact-link"
           to="/contact"
+          end
+          className={({ isActive }) => `contact-link${isActive ? ' active' : ''}`}
           onClick={() => setShowNav(false)}
         >
           <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />

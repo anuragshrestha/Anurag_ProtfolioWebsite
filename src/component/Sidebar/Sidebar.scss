@@ -91,6 +91,12 @@
       }
     }
 
+    a.skill-link {
+    &::after{
+      content: 'SKILL';
+    }
+    }
+
     a.contact-link {
       &:after {
         content: 'CONTACT';
