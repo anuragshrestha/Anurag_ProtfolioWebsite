@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faLinkedin,
   faGithub,
+  faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
 import {
   faHome,
@@ -11,51 +12,57 @@ import {
   faEnvelope,
   faBars,
   faClose,
-  faCode
+  faCode,
 } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
-  const [showNav, setShowNav] = useState(false);
+  const [showNav, setShowNav] = useState(false)
 
   return (
     <div className="nav-bar">
       <nav className={showNav ? 'mobile-show' : ''}>
-        <NavLink 
+        <NavLink
           to="/"
           end
-          className={({ isActive }) => isActive ? 'active' : ''}
-          onClick={() => setShowNav(false)}>
+          className={({ isActive }) => (isActive ? 'active' : '')}
+          onClick={() => setShowNav(false)}
+        >
           <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
         </NavLink>
-        <NavLink 
+        <NavLink
           to="/about"
           end
           className={({ isActive }) => `about-link${isActive ? ' active' : ''}`}
-          onClick={() => setShowNav(false)}>
+          onClick={() => setShowNav(false)}
+        >
           <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
         </NavLink>
-        <NavLink 
+        <NavLink
           to="/skill"
           end
           className={({ isActive }) => `skill-link${isActive ? ' active' : ''}`}
-          onClick={() => setShowNav(false)}>
+          onClick={() => setShowNav(false)}
+        >
           <FontAwesomeIcon icon={faCode} color="#4d4d4e" />
         </NavLink>
         <NavLink
           to="/contact"
           end
-          className={({ isActive }) => `contact-link${isActive ? ' active' : ''}`}
+          className={({ isActive }) =>
+            `contact-link${isActive ? ' active' : ''}`
+          }
           onClick={() => setShowNav(false)}
         >
           <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
         </NavLink>
-        <FontAwesomeIcon 
+        <FontAwesomeIcon
           onClick={() => setShowNav(false)}
           icon={faClose}
           color="#ffd700"
           size="3x"
-          className='close-icon' />
+          className="close-icon"
+        />
       </nav>
       <ul>
         <li>
@@ -66,7 +73,7 @@ const Sidebar = () => {
           >
             <FontAwesomeIcon
               icon={faLinkedin}
-              color='#FFFFFF'
+              color="#FFFFFF"
               className="anchor-icon"
             />
           </a>
@@ -84,16 +91,28 @@ const Sidebar = () => {
             />
           </a>
         </li>
+        <li>
+          <a
+            href="https://www.instagram.com/_anurag_shrestha_?igsh=bzVyNTRsdDNwenhn&utm_source=qr"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon
+              icon={faInstagram}
+              className="anchor-icon instagram-icon"
+            />
+          </a>
+        </li>
       </ul>
-      <FontAwesomeIcon 
-          onClick={() => setShowNav(true)}
-          icon={faBars}
-          color="#ffd700"
-          size="3x"
-          className='hamburger-icon' />
+      <FontAwesomeIcon
+        onClick={() => setShowNav(true)}
+        icon={faBars}
+        color="#ffd700"
+        size="3x"
+        className="hamburger-icon"
+      />
     </div>
   )
 }
 
 export default Sidebar
-

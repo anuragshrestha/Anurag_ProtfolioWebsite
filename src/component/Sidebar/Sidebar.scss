@@ -136,8 +136,10 @@
         color: inherit; 
         transition: color 0.3s ease-out;
 
+        
+
            &[data-icon="linkedin"] {
-            color: #2451c3 !important; 
+            color: #2354d0 !important; 
           }
           &[data-icon="github"] {
             color: #b6b6bc !important; 
@@ -159,6 +161,21 @@
   display: none;
 }
 
+
+.nav-bar {
+  ul {
+    li {
+      a {
+        .anchor-icon {
+          color: inherit;         
+        }
+        .instagram-icon {
+          color: #E1306C !important;
+        }
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 1200px) {
   .nav-bar { 
