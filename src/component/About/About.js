@@ -3,7 +3,6 @@ import Animated from '../AnimatedLayers/Animated'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SiPostgresql } from 'react-icons/si'
-import Loader from 'react-loaders'
 import {
   faAws,
   faGitAlt,
@@ -67,7 +66,6 @@ const About = () => {
         </div>
       </div>
     </div>
-    <Loader type = 'pacman'/>
     </>
   )
 }

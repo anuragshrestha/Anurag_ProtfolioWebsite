@@ -1,92 +1,76 @@
-import Loader from 'react-loaders'
-import './Contact.scss'
-import Animated from '../AnimatedLayers/Animated'
-import { useState, useEffect, useRef } from 'react'
-import emailjs from '@emailjs/browser'
-import { MapContainer, Marker, TileLayer } from 'react-leaflet'
+import { useState, useRef, useEffect } from 'react';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import emailjs from '@emailjs/browser';
+import Animated from '../AnimatedLayers/Animated';
+import './Contact.scss';
 
-const Contact = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
-  const refForm = useRef()
+const SERVICE_ID   = 'service_dvke4al';    // ✏️  your Service ID
+const TEMPLATE_ID  = 'template_contact';   // ✏️  TO-YOU template
+const PUBLIC_KEY   = 'vIUZN6pg9vnvlbJ_0';  // ✏️  your Public key
+
+export default function Contact() {
+  const [letterClass, setLetterClass] = useState('text-animate');
+  const [sending, setSending] = useState(false);
+  const formRef = useRef(null);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setLetterClass('text-animate-hover')
-    }, 3000)
-    return () => clearTimeout(timeoutId)
-  }, [])
+    const id = setTimeout(() => setLetterClass('text-animate-hover'), 3000);
+    return () => clearTimeout(id);
+  }, []);
 
   const sendEmail = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    setSending(true);
 
     emailjs
-      .sendForm('service_dvke4al', 'template_fkfwn9y', refForm.current, 'vIUZN6pg9vnvlbJ_0')
-      .then(
-        () => {
-          alert('Message sent successfully.')
-          window.location.reload(false)
-        },
-        () => {
-          alert('Failed to send message. Please try again.')
-        }
-      )
-  }
+      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      .then(() => {
+        alert('Message sent! Check your inbox for our auto-reply.');
+        formRef.current.reset();
+      })
+      .catch(() => alert('Failed to send message. Please try again.'))
+      .finally(() => setSending(false));
+  };
 
   return (
-    <>
-      <div className="container contact-page">
-        <div className="text-zone">
-          <h1>
-            <Animated
-              letterClass={letterClass}
-              strArray={['C', 'o', 'n', 't', 'a', 'c', 't', '\u00A0', 'm', 'e']}
-              index={15}
-            />
-          </h1>
-          <p>
-            I am interested in Software Engineering roles focusing mainly on Mobile App development and Backend development.
-          </p>
-          <div className="contact-form">
-            <form ref={refForm} onSubmit={sendEmail}>
-              <ul>
-                <li className="half">
-                  <input type="text" name="name" placeholder="Name" required />
-                </li>
-                <li className="half">
-                  <input type="email" name="email" placeholder="Email" required />
-                </li>
-                <li>
-                  <input type="text" name="subject" placeholder="Subject" required />
-                </li>
-                <li>
-                  <textarea placeholder="Message" name="message" required />
-                </li>
-                <li>
-                  <input className="flat-button" type="submit" value="Send" />
-                </li>
-              </ul>
-            </form>
-          </div>
-        </div>
+    <div className="container contact-page">
+      <div className="text-zone">
+        <h1>
+          <Animated
+            letterClass={letterClass}
+            strArray={['C', 'o', 'n', 't', 'a', 'c', 't', '\u00A0', 'm', 'e']}
+            index={15}
+          />
+        </h1>
 
-        <div className="info-map">
-          Anurag Shrestha
-          <br />
-          301 Harvard DR SE, United States
-          <br />
-          <span>anuragshrestha448@gmail.com</span>
-        </div>
+        <p>
+          I’m open to iOS / Full-Stack roles. Send a note and I’ll reply soon!
+        </p>
 
-        <div className="map-wrap">
-          <MapContainer center={[35.07703, -106.62114]} zoom={13}>
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[35.07703, -106.62114]} />
-          </MapContainer>
-        </div>
+        <form ref={formRef} onSubmit={sendEmail} className="contact-form">
+          <input name="name"    type="text"   placeholder="Name"    required />
+          <input name="email"   type="email"  placeholder="Email"   required />
+          <input name="subject" type="text"   placeholder="Subject" required />
+          <textarea name="message" placeholder="Message" required />
+          <button className="flat-button" disabled={sending}>
+            {sending ? 'Sending…' : 'Send'}
+          </button>
+        </form>
       </div>
-      <Loader type="pacman" />
-    </>
-  )
-}
 
-export default Contact
+      <div className="info-map">
+        Anurag Shrestha<br />
+        301 Harvard Dr SE<br />
+        Albuquerque, NM<br />
+        <span>anuragshrestha448@gmail.com</span>
+      </div>
+
+      <div className="map-wrap">
+        <MapContainer center={[35.07703, -106.62114]} zoom={13}>
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <Marker position={[35.07703, -106.62114]} />
+        </MapContainer>
+      </div>
+    </div>
+  );
+}

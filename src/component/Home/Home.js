@@ -3,7 +3,6 @@ import {Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Animated from '../AnimatedLayers/Animated';
 import Image from './Image/Image'
-import Loader from 'react-loaders';
 
 
 const Home = () => {
@@ -38,7 +37,6 @@ const Home = () => {
             </div>
         <Image/>
         </div>
-        <Loader type='pacman'/>
         </>
     )
 
