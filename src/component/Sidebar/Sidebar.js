@@ -5,6 +5,7 @@ import {
   faLinkedin,
   faGithub,
   faInstagram,
+  faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons'
 import {
   faHome,
@@ -72,9 +73,8 @@ const Sidebar = () => {
             rel="noreferrer"
           >
             <FontAwesomeIcon
-              icon={faLinkedin}
-              color="#FFFFFF"
-              className="anchor-icon"
+              icon={faLinkedinIn}
+              className="anchor-icon linkedin-icon"
             />
           </a>
         </li>
@@ -86,8 +86,7 @@ const Sidebar = () => {
           >
             <FontAwesomeIcon
               icon={faGithub}
-              color="#4d4d4e"
-              className="anchor-icon"
+              className="anchor-icon github-icon"
             />
           </a>
         </li>
