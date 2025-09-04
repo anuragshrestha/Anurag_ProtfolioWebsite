@@ -2,7 +2,6 @@ import './Sidebar.scss'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faLinkedin,
   faGithub,
   faInstagram,
   faLinkedinIn,
